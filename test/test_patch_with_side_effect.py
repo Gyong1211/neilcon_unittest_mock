@@ -10,10 +10,11 @@ response_400 = Mock(status_code=400, json=Mock(return_value={"code": 400}))
 
 
 def side_effect(url):
+    if url == "http://raise-error.com":
+        raise RequestException
     result_dict = {
         "http://response-200.com": response_200,
         "http://response-400.com": response_400,
-        "http://raise-error.com": RequestException
     }
     return result_dict[url]
 
