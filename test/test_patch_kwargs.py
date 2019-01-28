@@ -11,12 +11,12 @@ mocked_response = Mock(
 
 
 @mock.patch('helpers.get_response', return_value=mocked_response)
-def test_get_response_with_return_value_kwarg(mocked_get_response):
+def test_get_site_status_with_return_value_kwarg(mocked_get_response):
     result = BaseHelper.get_site_status("http://non-existent-url")
     assert result == {"code": 200}
 
 
 @mock.patch('helpers.get_response', new=Mock(return_value=mocked_response))
-def test_get_response_with_new_kwarg():
+def test_get_site_status_with_new_kwarg():
     result = BaseHelper.get_site_status("http://non-existent-url")
     assert result == {"code": 200}

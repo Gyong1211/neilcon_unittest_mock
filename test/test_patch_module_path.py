@@ -18,3 +18,4 @@ class PatchModulePathTest(TestCase):
         mocked_response.return_value.status_code = 200
         result = BaseHelper.get_site_status("http://non-existent-url")
         assert result == {"code": 200}
+
